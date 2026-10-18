@@ -1,0 +1,10 @@
+# No build step — plain HTML/CSS/JS. Netlify just publishes the folder.
+[build]
+  publish = "."
+  command = ""
+
+# Nice URLs for the admin panel (optional but handy)
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200

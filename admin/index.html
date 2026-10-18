@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <!--
+    ============================================================
+    Tech Towhed — content admin (Decap CMS)
+    Edit logo, text, services, projects & testimonials visually.
+    ============================================================
+    HOW LOGIN WORKS:
+
+    • NETLIFY (works out of the box):
+      1. Netlify dashboard → your site → Site settings → Identity → Enable Identity
+      2. Identity → Services → Git Gateway → Enable Git Gateway
+      3. Identity tab → "Invite users" → invite yourself → accept the email
+      4. Open https://your-site.netlify.app/admin and log in.
+
+    • VERCEL (needs one extra step — Netlify Identity/Git Gateway do NOT exist on Vercel):
+      1. In admin/config.yml change the backend from "git-gateway" to "github".
+      2. Register a GitHub OAuth app: GitHub → Settings → Developer settings →
+         OAuth Apps → New OAuth App.
+           - Homepage URL: https://your-site.vercel.app
+           - Authorization callback URL: https://api.netlify.com/auth/done
+             (Decap uses this callback even on Vercel — it is the official flow.)
+      3. Copy the Client ID + generate a Client Secret, and enter BOTH at
+         https://app.decapcms.org/oauth (Decap's free OAuth bridge) — this is the
+         standard way to get GitHub login working on a static host without a server.
+      4. Push the config change to GitHub, redeploy, open /admin and log in
+         with GitHub. Every save commits straight to your repo.
+  -->
+  <title>Tech Towhed — Content Admin</title>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</body>
+</html>

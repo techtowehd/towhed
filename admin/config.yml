@@ -1,0 +1,109 @@
+# ============================================================
+# Tech Towhed — Decap CMS config (visual content editor)
+#
+# DEFAULT: Netlify → enable Identity + Git Gateway in the Netlify
+# dashboard (see the note in admin/index.html). Then /admin login works.
+#
+# VERCEL: git-gateway does not work on Vercel. Change `name` below to
+# `github` and follow the GitHub OAuth app steps in admin/index.html.
+# ============================================================
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+publish_mode: simple
+
+collections:
+  # 1. All site text, logo, photo, contact & social links
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "content/settings.json"
+        label: "Site Settings"
+        name: "settings"
+        fields:
+          - { label: "Logo", name: "logo", widget: "image", required: false, hint: "Square logo, e.g. images/logo.svg" }
+          - { label: "Brand name", name: "brandName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Hero title", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero button text", name: "heroCtaText", widget: "string" }
+          - { label: "About heading", name: "aboutHeading", widget: "string" }
+          - { label: "About text", name: "aboutText", widget: "text" }
+          - { label: "Profile photo", name: "profilePhoto", widget: "image", required: false }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - { label: "WhatsApp (with country code, e.g. +8801...)", name: "whatsapp", widget: "string", required: false }
+          - label: "Social links"
+            name: "socialLinks"
+            widget: "object"
+            fields:
+              - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+              - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+          - { label: "Form endpoint (leave EMPTY to use Netlify Forms; if set, the contact form POSTs JSON here instead)", name: "formEndpoint", widget: "string", required: false }
+
+  # 2. Services list
+  - name: "services"
+    label: "Services"
+    files:
+      - file: "content/services.json"
+        label: "Services"
+        name: "services"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Icon (emoji, or one of: target, search, play, chart, rocket, badge, globe, spark)", name: "icon", widget: "string", default: "spark" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  # 3. Projects — one JSON file per project (create new from the panel)
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Project link", name: "link", widget: "string", required: false }
+      - { label: "Featured (shows first)", name: "featured", widget: "boolean", default: false }
+
+  # 4. Project index — add the filename of every new project here,
+  #    otherwise it will not appear on the site.
+  - name: "project_index"
+    label: "Project List (which projects show)"
+    files:
+      - file: "content/projects-index.json"
+        label: "Project files"
+        name: "project_index"
+        fields:
+          - label: "Project files (one per line, e.g. projects/my-work.json)"
+            name: "files"
+            widget: "list"
+            hint: "After creating a project above, add its filename here so it appears on the site."
+
+  # 5. Testimonials
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - file: "content/testimonials.json"
+        label: "Testimonials"
+        name: "testimonials"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string", required: false }
+              - { label: "Review text", name: "text", widget: "text" }

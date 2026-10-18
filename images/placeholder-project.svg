@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1440"/>
+      <stop offset="0.55" stop-color="#141b36"/>
+      <stop offset="1" stop-color="#0d2436"/>
+    </linearGradient>
+    <linearGradient id="tt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c5cfc"/>
+      <stop offset="1" stop-color="#36d9ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="620" cy="80" r="180" fill="#7c5cfc" opacity="0.18"/>
+  <circle cx="120" cy="380" r="150" fill="#36d9ff" opacity="0.12"/>
+  <rect x="352" y="120" width="96" height="96" rx="24" fill="url(#tt)" opacity="0.9"/>
+  <text x="400" y="188" font-family="-apple-system,'Segoe UI',Arial,sans-serif" font-size="44" font-weight="800" fill="#ffffff" text-anchor="middle">TT</text>
+  <text x="400" y="280" font-family="-apple-system,'Segoe UI',Arial,sans-serif" font-size="28" font-weight="600" fill="#a6b0c3" text-anchor="middle">Sample project image</text>
+  <text x="400" y="318" font-family="-apple-system,'Segoe UI',Arial,sans-serif" font-size="18" fill="#6b7690" text-anchor="middle">Replace from /admin → Projects</text>
+</svg>
